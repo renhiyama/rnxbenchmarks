@@ -1,0 +1,12 @@
+fn fib(n: Int): Int {
+    if n < 2 {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+
+fn Main(): Int {
+    let r = fib(35);
+    print("fib(35) =", r);
+    return 0;
+}

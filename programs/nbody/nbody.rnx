@@ -1,0 +1,100 @@
+import { Math } from "std:math";
+
+fn push5(a: Array<Float>, v0: Float, v1: Float, v2: Float, v3: Float, v4: Float) {
+    a.push(v0);
+    a.push(v1);
+    a.push(v2);
+    a.push(v3);
+    a.push(v4);
+}
+
+fn offsetMomentum(x: Array<Float>, y: Array<Float>, z: Array<Float>, vx: Array<Float>, vy: Array<Float>, vz: Array<Float>, m: Array<Float>) {
+    let px = 0.0;
+    let py = 0.0;
+    let pz = 0.0;
+    let i = 0;
+    while i < 5 {
+        px = px + vx[i] * m[i];
+        py = py + vy[i] * m[i];
+        pz = pz + vz[i] * m[i];
+        i = i + 1;
+    }
+    vx[0] = 0.0 - px / 1.0;
+    vy[0] = 0.0 - py / 1.0;
+    vz[0] = 0.0 - pz / 1.0;
+}
+
+fn advance(x: Array<Float>, y: Array<Float>, z: Array<Float>, vx: Array<Float>, vy: Array<Float>, vz: Array<Float>, m: Array<Float>, dt: Float) {
+    let i = 0;
+    while i < 5 {
+        let j = i + 1;
+        while j < 5 {
+            let dx = x[i] - x[j];
+            let dy = y[i] - y[j];
+            let dz = z[i] - z[j];
+            let distSq = dx * dx + dy * dy + dz * dz;
+            let dist = Math.sqrt(distSq);
+            let mag = dt / (distSq * dist);
+            vx[i] = vx[i] - dx * m[j] * mag;
+            vy[i] = vy[i] - dy * m[j] * mag;
+            vz[i] = vz[i] - dz * m[j] * mag;
+            vx[j] = vx[j] + dx * m[i] * mag;
+            vy[j] = vy[j] + dy * m[i] * mag;
+            vz[j] = vz[j] + dz * m[i] * mag;
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+    let k = 0;
+    while k < 5 {
+        x[k] = x[k] + dt * vx[k];
+        y[k] = y[k] + dt * vy[k];
+        z[k] = z[k] + dt * vz[k];
+        k = k + 1;
+    }
+}
+
+fn energy(x: Array<Float>, y: Array<Float>, z: Array<Float>, vx: Array<Float>, vy: Array<Float>, vz: Array<Float>, m: Array<Float>): Float {
+    let e = 0.0;
+    let i = 0;
+    while i < 5 {
+        e = e + 0.5 * m[i] * (vx[i] * vx[i] + vy[i] * vy[i] + vz[i] * vz[i]);
+        let j = i + 1;
+        while j < 5 {
+            let dx = x[i] - x[j];
+            let dy = y[i] - y[j];
+            let dz = z[i] - z[j];
+            let dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            e = e - (m[i] * m[j]) / dist;
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+    return e;
+}
+
+fn Main(): Int {
+    let x: Array<Float> = [];
+    let y: Array<Float> = [];
+    let z: Array<Float> = [];
+    let vx: Array<Float> = [];
+    let vy: Array<Float> = [];
+    let vz: Array<Float> = [];
+    let m: Array<Float> = [];
+    push5(x, 0.0, 4.84143144246472090, -8.34336671824457987, 12.8943695621399930, -15.1111514016986312);
+    push5(y, 0.0, -1.33081745316873100, 4.12401084012922153, -15.1111514016986312, -2.23307578883923100);
+    push5(z, 0.0, -1.01285558609590400, -0.25201944206821800, -0.30550644688493600, 4.87198428709807900);
+    push5(vx, 0.0, 0.00166007664274403690, 0.00110052230769298880, -0.000298068015449799380, 0.000276689588924791380);
+    push5(vy, 0.0, -0.00276742510726862411, -0.00412401084012922153, -0.000736407576782031450, -0.000599815228414248880);
+    push5(vz, 0.0, -0.00138340197747227880, -0.000618624084271047990, -0.000297654262186052250, -0.000038256625988509985);
+    push5(m, 1.0, 0.000954791938424326609, 0.000285885980666130812, 0.0000436624404335156298, 0.0000515138902046611451);
+    offsetMomentum(x, y, z, vx, vy, vz, m);
+    let s = 0;
+    while s < 100000 {
+        advance(x, y, z, vx, vy, vz, m, 0.01);
+        s = s + 1;
+    }
+    let e = energy(x, y, z, vx, vy, vz, m);
+    print("nbody checksum =", Int(e * 1000000000.0));
+    return 0;
+}
