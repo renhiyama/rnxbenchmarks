@@ -1,6 +1,6 @@
 # Benchmark results
 
-Generated 2026-09-19T03:04:50Z on AMD Ryzen 7 8840HS w/ Radeon 780M Graphics (Linux 7.2.2-arch1-1 x86_64).
+Generated 2026-09-24T09:01:55Z on AMD Ryzen 7 8840HS w/ Radeon 780M Graphics (Linux 7.2.2-arch1-1 x86_64).
 
 Median wall time of 5 runs after 2 warmups, peak RSS (VmHWM),
 artifact size, and checksum agreement. Build flags: gcc/g++ -O2,
@@ -23,69 +23,69 @@ rnx build (dev) and rnx build --release.
 
 | lang | median | best | peak RSS | size | checksum |
 |---|---|---|---|---|---|
-| rasmalai-dev | 0.083s | 0.081s | 2.7MB | 5.2MB | match |
-| rasmalai-rel | 0.029s | 0.029s | 2.4MB | 356.1KB | match |
-| c | 0.013s | 0.012s | 2.0MB | 15.6KB | match |
-| cpp | 0.013s | 0.013s | 3.7MB | 15.6KB | match |
-| rust | 0.025s | 0.024s | 2.2MB | 4.3MB | match |
-| node | 0.137s | 0.134s | 54.8MB | 119B | match |
-| go | 0.054s | 0.053s | 2.1MB | 2.2MB | match |
-| java | 0.064s | 0.062s | 42.1MB | 977B | match |
-| dart | 0.079s | 0.078s | 7.8MB | 6.2MB | match |
+| rasmalai-dev | 0.057s | 0.057s | 3.3MB | 5.4MB | match |
+| rasmalai-rel | 0.022s | 0.021s | 2.5MB | 402.1KB | match |
+| c | 0.009s | 0.009s | 2.1MB | 15.6KB | match |
+| cpp | 0.010s | 0.010s | 3.7MB | 15.6KB | match |
+| rust | 0.018s | 0.017s | 2.2MB | 4.3MB | match |
+| node | 0.102s | 0.096s | 54.4MB | 119B | match |
+| go | 0.037s | 0.036s | 2.1MB | 2.2MB | match |
+| java | 0.048s | 0.047s | 42.1MB | 977B | match |
+| dart | 0.054s | 0.053s | 8.0MB | 6.2MB | match |
 
 ## mandel (expected `mandel 400 total = 27654979`)
 
 | lang | median | best | peak RSS | size | checksum |
 |---|---|---|---|---|---|
-| rasmalai-dev | 0.401s | 0.397s | 2.8MB | 5.2MB | match |
-| rasmalai-rel | 0.085s | 0.084s | 2.4MB | 356.9KB | match |
-| c | 0.086s | 0.084s | 2.0MB | 15.6KB | match |
-| cpp | 0.086s | 0.086s | 3.7MB | 15.6KB | match |
-| rust | 0.085s | 0.082s | 2.2MB | 4.3MB | match |
-| node | 0.127s | 0.126s | 56.2MB | 521B | match |
-| go | 0.086s | 0.084s | 2.1MB | 2.2MB | match |
-| java | 0.129s | 0.124s | 43.1MB | 1.2KB | match |
-| dart | 0.086s | 0.085s | 8.1MB | 6.2MB | match |
+| rasmalai-dev | 0.279s | 0.277s | 2.9MB | 5.4MB | match |
+| rasmalai-rel | 0.057s | 0.056s | 2.5MB | 402.8KB | match |
+| c | 0.057s | 0.057s | 2.0MB | 15.6KB | match |
+| cpp | 0.059s | 0.058s | 3.7MB | 15.6KB | match |
+| rust | 0.057s | 0.056s | 2.2MB | 4.3MB | match |
+| node | 0.093s | 0.086s | 56.1MB | 521B | match |
+| go | 0.058s | 0.058s | 2.1MB | 2.2MB | match |
+| java | 0.091s | 0.090s | 43.0MB | 1.2KB | match |
+| dart | 0.059s | 0.058s | 7.9MB | 6.2MB | match |
 
 ## nbody (expected `nbody checksum = 1516028815`)
 
 | lang | median | best | peak RSS | size | checksum |
 |---|---|---|---|---|---|
-| rasmalai-dev | 0.067s | 0.066s | 2.6MB | 5.2MB | match |
-| rasmalai-rel | 0.009s | 0.009s | 2.5MB | 361.7KB | match |
-| c | 0.008s | 0.008s | 2.0MB | 15.7KB | match |
-| cpp | 0.010s | 0.009s | 3.7MB | 15.7KB | match |
-| rust | 0.009s | 0.008s | 2.2MB | 4.3MB | match |
-| node | 0.054s | 0.052s | 57.4MB | 2.7KB | match |
-| go | 0.010s | 0.009s | 2.1MB | 2.2MB | match |
-| java | 0.071s | 0.058s | 45.3MB | 2.6KB | match |
-| dart | 0.023s | 0.021s | 10.3MB | 6.2MB | match |
+| rasmalai-dev | 0.046s | 0.045s | 2.9MB | 5.4MB | match |
+| rasmalai-rel | 0.007s | 0.006s | 2.5MB | 406.2KB | match |
+| c | 0.006s | 0.006s | 2.0MB | 15.7KB | match |
+| cpp | 0.007s | 0.007s | 3.7MB | 15.7KB | match |
+| rust | 0.006s | 0.006s | 2.2MB | 4.3MB | match |
+| node | 0.042s | 0.039s | 57.2MB | 2.7KB | match |
+| go | 0.007s | 0.006s | 2.1MB | 2.2MB | match |
+| java | 0.056s | 0.045s | 45.3MB | 2.6KB | match |
+| dart | 0.016s | 0.014s | 10.6MB | 6.2MB | match |
 
 ## spectral (expected `spectral checksum = 1623646`)
 
 | lang | median | best | peak RSS | size | checksum |
 |---|---|---|---|---|---|
-| rasmalai-dev | 0.045s | 0.043s | 2.7MB | 5.2MB | match |
-| rasmalai-rel | 0.007s | 0.007s | 2.5MB | 359.9KB | match |
-| c | 0.005s | 0.004s | 2.0MB | 15.8KB | match |
-| cpp | 0.005s | 0.005s | 3.7MB | 16.3KB | match |
-| rust | 0.006s | 0.006s | 2.2MB | 4.3MB | match |
-| node | 0.050s | 0.043s | 57.9MB | 858B | match |
-| go | 0.008s | 0.007s | 2.1MB | 2.2MB | match |
-| java | 0.052s | 0.048s | 43.4MB | 1.5KB | match |
-| dart | 0.024s | 0.022s | 11.4MB | 6.2MB | match |
+| rasmalai-dev | 0.031s | 0.030s | 3.0MB | 5.4MB | match |
+| rasmalai-rel | 0.006s | 0.005s | 2.5MB | 404.4KB | match |
+| c | 0.003s | 0.003s | 2.0MB | 15.8KB | match |
+| cpp | 0.004s | 0.003s | 3.7MB | 16.3KB | match |
+| rust | 0.005s | 0.005s | 2.2MB | 4.3MB | match |
+| node | 0.039s | 0.036s | 58.4MB | 858B | match |
+| go | 0.005s | 0.005s | 2.1MB | 2.2MB | match |
+| java | 0.036s | 0.035s | 43.4MB | 1.5KB | match |
+| dart | 0.017s | 0.017s | 11.4MB | 6.2MB | match |
 
 ## matmul (expected `matmul checksum = 38187008`)
 
 | lang | median | best | peak RSS | size | checksum |
 |---|---|---|---|---|---|
-| rasmalai-dev | 0.093s | 0.092s | 4.4MB | 5.2MB | match |
-| rasmalai-rel | 0.010s | 0.010s | 4.2MB | 358.9KB | match |
-| c | 0.005s | 0.004s | 2.6MB | 15.7KB | match |
-| cpp | 0.005s | 0.005s | 4.5MB | 16.2KB | match |
-| rust | 0.009s | 0.008s | 3.6MB | 4.3MB | match |
-| node | 0.073s | 0.069s | 62.3MB | 579B | match |
-| go | 0.018s | 0.016s | 3.6MB | 2.2MB | match |
-| java | 0.058s | 0.057s | 45.7MB | 1.2KB | match |
-| dart | 0.046s | 0.044s | 9.6MB | 6.2MB | match |
+| rasmalai-dev | 0.063s | 0.062s | 4.5MB | 5.4MB | match |
+| rasmalai-rel | 0.007s | 0.007s | 4.3MB | 403.4KB | match |
+| c | 0.004s | 0.003s | 2.6MB | 15.7KB | match |
+| cpp | 0.005s | 0.004s | 4.4MB | 16.2KB | match |
+| rust | 0.007s | 0.007s | 3.7MB | 4.3MB | match |
+| node | 0.054s | 0.054s | 62.3MB | 579B | match |
+| go | 0.012s | 0.011s | 3.6MB | 2.2MB | match |
+| java | 0.045s | 0.043s | 45.8MB | 1.2KB | match |
+| dart | 0.032s | 0.031s | 9.3MB | 6.2MB | match |
 

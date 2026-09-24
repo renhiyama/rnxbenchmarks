@@ -5,8 +5,6 @@ fn fib(n: Int): Int {
     return fib(n - 1) + fib(n - 2);
 }
 
-fn Main(): Int {
-    let r = fib(35);
-    print("fib(35) =", r);
-    return 0;
-}
+
+let r = fib(35);
+print("fib(35) =", r);

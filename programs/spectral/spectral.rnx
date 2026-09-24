@@ -31,34 +31,32 @@ fn timesA(v: Array<Float>, out: Array<Float>, n: Int) {
     }
 }
 
-fn Main(): Int {
-    let n = 300;
-    let u: Array<Float> = [];
-    let v: Array<Float> = [];
-    let w: Array<Float> = [];
-    let i = 0;
-    while i < n {
-        u.push(1.0);
-        v.push(0.0);
-        w.push(0.0);
-        i = i + 1;
-    }
-    let it = 0;
-    while it < 10 {
-        timesAv(u, w, n);
-        timesA(w, v, n);
-        timesAv(v, w, n);
-        timesA(w, u, n);
-        it = it + 1;
-    }
-    let vBv = 0.0;
-    let vv = 0.0;
-    let k = 0;
-    while k < n {
-        vBv = vBv + u[k] * v[k];
-        vv = vv + v[k] * v[k];
-        k = k + 1;
-    }
-    print("spectral checksum =", Int(vBv / vv * 1000000.0));
-    return 0;
+
+let n = 300;
+let u: Array<Float> = [];
+let v: Array<Float> = [];
+let w: Array<Float> = [];
+let i = 0;
+while i < n {
+    u.push(1.0);
+    v.push(0.0);
+    w.push(0.0);
+    i = i + 1;
 }
+let it = 0;
+while it < 10 {
+    timesAv(u, w, n);
+    timesA(w, v, n);
+    timesAv(v, w, n);
+    timesA(w, u, n);
+    it = it + 1;
+}
+let vBv = 0.0;
+let vv = 0.0;
+let k = 0;
+while k < n {
+    vBv = vBv + u[k] * v[k];
+    vv = vv + v[k] * v[k];
+    k = k + 1;
+}
+print("spectral checksum =", Int(vBv / vv * 1000000.0));

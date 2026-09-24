@@ -1,27 +1,24 @@
-fn Main(): Int {
-    let n = 400;
-    let limit = 1000;
-    let total = 0;
-    let y = 0;
-    while y < n {
-        let ci = -1.5 + Float(y) * (3.0 / Float(n));
-        let x = 0;
-        while x < n {
-            let cr = -2.0 + Float(x) * (3.0 / Float(n));
-            let zr = 0.0;
-            let zi = 0.0;
-            let iter = 0;
-            while zr * zr + zi * zi <= 4.0 && iter < limit {
-                let tr = zr * zr - zi * zi + cr;
-                zi = 2.0 * zr * zi + ci;
-                zr = tr;
-                iter = iter + 1;
-            }
-            total = total + iter;
-            x = x + 1;
+let n = 400;
+let limit = 1000;
+let total = 0;
+let y = 0;
+while y < n {
+    let ci = -1.5 + Float(y) * (3.0 / Float(n));
+    let x = 0;
+    while x < n {
+        let cr = -2.0 + Float(x) * (3.0 / Float(n));
+        let zr = 0.0;
+        let zi = 0.0;
+        let iter = 0;
+        while zr * zr + zi * zi <= 4.0 && iter < limit {
+            let tr = zr * zr - zi * zi + cr;
+            zi = 2.0 * zr * zi + ci;
+            zr = tr;
+            iter = iter + 1;
         }
-        y = y + 1;
+        total = total + iter;
+        x = x + 1;
     }
-    print("mandel", n, "total =", total);
-    return 0;
+    y = y + 1;
 }
+print("mandel", n, "total =", total);
